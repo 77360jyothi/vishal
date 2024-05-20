@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+<style>
+    /* Set the background color */
+    body {
+        background-color: #f0f0f0; /* Adjust the color code as needed */
+    }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Ratings</title>
+</head>
+<body>
+    <h1>Ratings for {{ movie.name }}</h1>
+    <ul>
+        {% for rating in ratings %}
+        <li>{{ rating.rating }} - by {{ rating.user.username }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+
+{% endblock %}

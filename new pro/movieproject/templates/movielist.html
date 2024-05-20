@@ -1,0 +1,27 @@
+<!-- movielist.html -->
+
+{% extends 'base.html' %}
+
+{% block body %}
+<style>
+    /* Set the background color */
+    body {
+        background-color: #e8f48c; /* Adjust the color code as needed */
+    }
+</style>
+<div class="container">
+    <h1>Movie List</h1>
+    <div class="row">
+        {% for movie in movie_list %}
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.name }}</h5>
+                    <p class="card-text">{{ movie.desc }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

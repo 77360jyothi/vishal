@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block body %}
+<style>
+    /* Set the background color */
+    body {
+        background-color: #e8f48c; /* Adjust the color code as needed */
+    }
+
+    /* Add margin to create vertical distance from the navbar */
+    .content-container {
+        margin-top: 200px; /* Adjust the value as needed */
+    }
+</style>
+<div class="container content-container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{movie.img.url}}" width="300" height="300">
+        </div>
+        <div class="col-md-6">
+            <h6>{{movie.name}}</h6>
+            <h4>{{movie.desc}}</h4>
+            <h6>{{movie.year}}</h6>
+            <a class="btn btn-warning" href="{% url 'movieapp:update' movie.id %}">update</a>
+            <a class="btn btn-danger" href="{% url 'movieapp:delete' movie.id %}">delete</a>
+            <a href="{% url 'movieapp:movie_ratings' movie.id %}" class="btn btn-primary">ViewRatings</a>
+                    <a href="{% url 'movieapp:movie_reviews' movie.id %}" class="btn btn-primary">ViewReviews</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

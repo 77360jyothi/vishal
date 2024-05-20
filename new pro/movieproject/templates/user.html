@@ -1,0 +1,27 @@
+<!-- user_profile.html -->
+
+{% extends 'base.html' %}
+
+{% block body %}
+<style>
+    /* Set the background color */
+    body {
+        background-color: #e8f48c; /* Adjust the color code as needed */
+    }
+</style>
+<div class="container">
+    <h1>User Profile</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">User Information</h5>
+                    <p><strong>Username:</strong> {{ user.username }}</p>
+                    <p><strong>Email:</strong> {{ user.email }}</p>
+                    <!-- Add more user details as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

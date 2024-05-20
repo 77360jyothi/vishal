@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<style>
+    /* Set the background color */
+    body {
+        background-color: #e8f48c; /* Adjust the color code as needed */
+    }
+</style>
+<div class="container">
+    <h1>Search Results</h1>
+
+    <div class="mt-4">
+        <h3>Search Query:</h3>
+        <p>{{ query }}</p>
+    </div>
+
+    <div class="mt-4">
+        <h3>Search Results:</h3>
+        {% if movie_list %}
+            <div class="row">
+                {% for movie in movie_list %}
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                         <img class="card-img-top" src="{{movie.img.url}}" alt="Card image cap" width="250px" height="250px">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ movie.name }}</h5>
+                            <p class="card-text">{{ movie.desc }}</p>
+                            <p class="card-text"><strong>Year:</strong> {{ movie.year }}</p>
+                            <a href="{{ movie.trailer_link }}" class="btn btn-primary" target="_blank">Watch Trailer</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No movies found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

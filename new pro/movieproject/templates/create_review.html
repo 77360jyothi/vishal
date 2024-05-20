@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block body %}
+<style>
+    /* Set the background color */
+    body {
+        background-color: #f0f0f0; /* Adjust the color code as needed */
+    }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Review</title>
+</head>
+<body>
+    <h1>Create Review for {{ movie.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+{% endblock %}

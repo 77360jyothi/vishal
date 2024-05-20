@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<style>
+    .container {
+        margin-top: 20px; /* Adjust the value as needed */
+    }
+    .card {
+        margin-bottom: 20px; /* Adjust the value to add desired space */
+    }
+    body {
+        background-color: #e8f48c; /* Adjust the color code as needed */
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        {% for i in movie_list %}
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{i.img.url}}" alt="Card image cap" width="250px" height="250px">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.name}}</h5>
+                    <p class="card-text">{{i.desc}}</p>
+                    <a href="{% url 'movieapp:detail' i.id %}" class="btn btn-primary">View Details</a>
+                    <a href="{% url 'movieapp:create_review' i.id %}" >Review</a>
+                    <a href="{% url 'movieapp:create_rating' i.id %}">Rating</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Include jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% endblock %}
